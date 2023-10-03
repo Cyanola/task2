@@ -140,7 +140,7 @@
          <bottom>
             <Label fx:id="info" text="Label" BorderPane.alignment="CENTER">
                <BorderPane.margin>
-                  <Insets left="-624.0" />
+                  <Insets left="-330.0" />
                </BorderPane.margin>
             </Label>
          </bottom>

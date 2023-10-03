@@ -38,8 +38,9 @@ private Label info;
     protected void onMouseClicked(MouseEvent event) {
         ShapeFactory shapeFactory = new ShapeFactory(); //get an object  and call its draw method.
 
-        Shape shape = shapeFactory.createShape(Integer.parseInt(txtCount.getText()), event.getX(), event.getY(),Integer.parseInt(borderCount.getText()),
-                borderPicker.getValue(), fillPicker.getValue(),Double.parseDouble(heightCount.getText()), Double.parseDouble(widthCount.getText()));
+        Shape shape = shapeFactory.createShape(Integer.parseInt(txtCount.getText()), event.getX(), event.getY(),
+                Integer.parseInt(borderCount.getText()),borderPicker.getValue(), fillPicker.getValue(),
+                Double.parseDouble(heightCount.getText()), Double.parseDouble(widthCount.getText()));
 
         GraphicsContext gc = canvas.getGraphicsContext2D(); //получить контекст(холст) для рисования
 
