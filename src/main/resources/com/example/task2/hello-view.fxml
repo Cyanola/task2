@@ -1,16 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.task2.HelloController">
+<VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="700.0" spacing="20.0" style="-fx-background-color: #D2E6E7;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.task2.HelloController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
+   <children>
+      <BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" prefWidth="700.0">
+         <children>
+            <Canvas height="427.0" layoutX="2.0" layoutY="2.0" width="700.0" />
+         </children>
+         <center>
+            <Canvas fx:id="canvas" height="367.0" onMouseClicked="#onMouseClicked" width="696.0" BorderPane.alignment="CENTER" />
+         </center>
+         <top>
+            <FlowPane fx:id="flowpane" prefHeight="112.0" prefWidth="700.0" style="-fx-background-color: #D2E6E7;" BorderPane.alignment="CENTER">
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+               <children>
+                  <Label text="Ширина">
+                     <FlowPane.margin>
+                        <Insets left="13.0" top="67.0" />
+                     </FlowPane.margin>
+                     <padding>
+                        <Insets left="19.0" right="-88.0" />
+                     </padding>
+                  </Label>
+
+                  <Label prefHeight="39.0" prefWidth="103.0" style="-fx-font-family: 'Century Gothic Bold'; -fx-font-size: 15;" text="Число сторон" wrapText="true">
+                     <FlowPane.margin>
+                        <Insets left="18.0" top="-10.0" />
+                     </FlowPane.margin>
+                     <font>
+                        <Font name="Marlett" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="widthCount" prefHeight="26.0" prefWidth="59.0">
+                     <padding>
+                        <Insets right="-2.0" />
+                     </padding>
+                     <FlowPane.margin>
+                        <Insets left="-33.0" top="70.0" />
+                     </FlowPane.margin>
+                  </TextField>
+                  <Label text="Высота">
+                     <FlowPane.margin>
+                        <Insets left="36.0" top="66.0" />
+                     </FlowPane.margin>
+                     <padding>
+                        <Insets left="-28.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="heightCount" prefHeight="26.0" prefWidth="63.0">
+                     <FlowPane.margin>
+                        <Insets left="18.0" top="67.0" />
+                     </FlowPane.margin>
+                  </TextField>
+                  <TextField fx:id="txtCount" prefHeight="36.0" prefWidth="48.0" style="-fx-font-family: 'Century Gothic Bold'; -fx-font-size: 15;">
+                     <FlowPane.margin>
+                        <Insets left="-125.0" top="-10.0" />
+                     </FlowPane.margin>
+                     <font>
+                        <Font name="Century Gothic Bold" size="18.0" />
+                     </font>
+                  </TextField>
+                  <Label prefHeight="34.0" prefWidth="151.0" style="-fx-font-family: 'Century Gothic Bold'; -fx-font-size: 15;" text="Логический элемент">
+                     <FlowPane.margin>
+                        <Insets left="35.0" top="-10.0" />
+                     </FlowPane.margin>
+                     <font>
+                        <Font name="Century Gothic Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <MenuButton fx:id="menuch" mnemonicParsing="false" prefHeight="35.0" prefWidth="119.0" style="-fx-font-family: 'Century Gothic Bold'; -fx-font-size: 15; -fx-background-color: #D2E6E7;" textFill="#4fb194">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                     <FlowPane.margin>
+                        <Insets left="10.0" top="-10.0" />
+                     </FlowPane.margin>
+                     <font>
+                        <Font name="Constantia" size="18.0" />
+                     </font>
+                  </MenuButton>
+                  <Label text="Заливка">
+                     <FlowPane.margin>
+                        <Insets left="12.0" top="8.0" />
+                     </FlowPane.margin>
+                     <padding>
+                        <Insets left="-16.0" right="-14.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Граница">
+                     <FlowPane.margin>
+                        <Insets left="-27.0" top="92.0" />
+                     </FlowPane.margin>
+                     <padding>
+                        <Insets left="-3.0" />
+                     </padding>
+                  </Label>
+                  <ColorPicker fx:id="fillPicker" prefHeight="26.0" prefWidth="31.0">
+                     <FlowPane.margin>
+                        <Insets left="12.0" top="16.0" />
+                     </FlowPane.margin>
+                     <value>
+                        <Color red="0.9263157844543457" green="0.6244054436683655" blue="0.9112202525138855" />
+                     </value>
+                  </ColorPicker>
+                  <Label text="Толщина линии">
+                     <FlowPane.margin>
+                        <Insets left="-74.0" top="-71.0" />
+                     </FlowPane.margin>
+                     <padding>
+                        <Insets left="-22.0" />
+                     </padding>
+                  </Label>
+                  <ColorPicker fx:id="borderPicker" prefHeight="26.0" prefWidth="33.0">
+                     <FlowPane.margin>
+                        <Insets left="-23.0" top="83.0" />
+                     </FlowPane.margin>
+                     <value>
+                        <Color red="0.13754385709762573" green="0.6631578803062439" blue="0.4003508687019348" />
+                     </value>
+                  </ColorPicker>
+                  <TextField fx:id="borderCount" prefHeight="26.0" prefWidth="38.0" text="10">
+                     <FlowPane.margin>
+                        <Insets left="-10.0" top="-70.0" />
+                     </FlowPane.margin>
+                  </TextField>
+               </children>
+            </FlowPane>
+         </top>
+         <bottom>
+            <Label fx:id="info" text="Label" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets left="-624.0" />
+               </BorderPane.margin>
+            </Label>
+         </bottom>
+      </BorderPane>
+   </children>
 </VBox>
