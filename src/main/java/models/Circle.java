@@ -2,14 +2,17 @@ package models;
 
 
 import javafx.fxml.FXML;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
+import java.util.Random;
+
 public class Circle extends Shape {
-    public Circle(int lineBorder, Color colorBorder, Color colorFill, double x, double y, double height, double width) {
+    public Circle(int lineBorder, Color colorBorder, Color colorFill, double x, double y, double width, double height) {
         super(lineBorder, colorBorder, colorFill, x, y);
-        this.height=height;
-        this.width=width;
+this.width=width;
+this.height=height;
     }
 
     @Override
@@ -32,13 +35,13 @@ public class Circle extends Shape {
         return width;
     }
     @Override
-    public void draw(GraphicsContext gr) {
+    public void draw(Canvas canvas,GraphicsContext gr) {
 
         gr.setStroke(colorBorder);
         gr.setLineWidth(lineBorder);
-        gr.strokeOval(this.x - (height/2), this.y - (super.width/2), height, super.width);
+        gr.strokeOval(this.x - (height/2), this.y - (width/2), width, height);
         gr.setFill(colorFill);
-        gr.fillOval(this.x - (height/2), this.y - (super.width/2), height, super.width);
+        gr.fillOval(this.x - (height/2), this.y - (width/2), width, height);
     }
 
 @Override

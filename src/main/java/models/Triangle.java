@@ -1,19 +1,22 @@
 package models;
 
+import javafx.scene.canvas.Canvas;
 import models.Shape;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
+import java.util.Random;
+
 public class Triangle extends Shape {
 
-    public Triangle(int lineBorder, Color colorBorder, Color colorFill, double x, double y) {
+    public Triangle(int lineBorder, Color colorBorder, Color colorFill, double x, double y,double width, double height) {
         super(lineBorder, colorBorder, colorFill, x, y);
     }
 
     @Override
-    public void draw(GraphicsContext gc ) {
+    public void draw(Canvas canvas,GraphicsContext gc ) {
        //Start the Path
-
+Random rnd = new Random();
         gc.beginPath();
 
 // Make different Paths
@@ -22,9 +25,13 @@ public class Triangle extends Shape {
         gc.setLineWidth(this.lineBorder);
 
         gc.moveTo(x, y);
-        gc.lineTo(this.x *2, this.y*2+y);
+        double origin = canvas.maxHeight(Double.MAX_VALUE);
+        double bound = canvas.maxWidth(Double.MAX_VALUE);
+        gc.lineTo(rnd.nextDouble(bound) , rnd.nextDouble(origin));
 
-        gc.lineTo(this.x+x*2+x,this.y*2+y);
+      origin = canvas.maxHeight(Double.MAX_VALUE);
+        bound = canvas.maxWidth(Double.MAX_VALUE);
+        gc.lineTo(rnd.nextDouble(bound) , rnd.nextDouble(origin));
 
 
         gc.lineTo(x,y);

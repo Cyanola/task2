@@ -1,5 +1,6 @@
 package models;
 
+import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
@@ -42,7 +43,7 @@ public abstract class Shape {
     abstract void setWidth(double value);
     abstract double getWidth();
 
-    public abstract void draw(GraphicsContext gr);
+    public abstract void draw(Canvas canvas,  GraphicsContext gr);
    public abstract String descriptor();
 
 

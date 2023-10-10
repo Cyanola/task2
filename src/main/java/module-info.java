@@ -7,5 +7,7 @@ module com.example.task2 {
     exports com.example.task2;
     exports models;
     opens models to javafx.fxml;
+    exports Factory;
+    opens Factory to javafx.fxml;
 
 }

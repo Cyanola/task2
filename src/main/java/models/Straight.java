@@ -1,17 +1,20 @@
 package models;
 
+import javafx.scene.canvas.Canvas;
 import models.Shape;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
+import java.util.Random;
+
 public class Straight extends Shape {
 
-    public Straight(int lineBorder, Color colorBorder, Color colorFill, double x, double y) {
+    public Straight(int lineBorder, Color colorBorder, Color colorFill, double x, double y,double width, double height) {
         super(lineBorder, colorBorder, colorFill, x, y);
     }
 
     @Override
-    public void draw(GraphicsContext gc) {
+    public void draw(Canvas canvas, GraphicsContext gc) {
 //Start the Path
 
         gc.beginPath();
@@ -22,7 +25,11 @@ public class Straight extends Shape {
         gc.setLineWidth(this.lineBorder);
 
         gc.moveTo(x, y);
-        gc.lineTo(this.x*2, this.y*2);
+        Random rnd = new Random();
+
+        double origin = canvas.maxHeight(Double.MAX_VALUE);
+        double bound = canvas.maxWidth(Double.MAX_VALUE);
+        gc.lineTo(rnd.nextDouble(bound) /2, rnd.nextDouble(origin)/2);
 
 
         gc.stroke();

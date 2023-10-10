@@ -1,25 +1,32 @@
 package models;
 
+import javafx.scene.canvas.Canvas;
 import models.Shape;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
+import java.util.Random;
+
 public class Square extends Shape {
 
-    public Square(int lineBorder, Color colorBorder, Color colorFill, double x, double y, double height, double width) {
+    public Square(int lineBorder, Color colorBorder, Color colorFill, double x, double y,double width, double height) {
         super(lineBorder, colorBorder, colorFill, x, y);
-        this.height=height;
-        this.width=width;
+this.width = width;
+this.height=height;
     }
 
     @Override
-    public void draw(GraphicsContext gr) {
+    public void draw(Canvas canvas, GraphicsContext gr) {
         gr.setStroke(colorBorder);
         gr.setLineWidth(lineBorder);
+
         gr.strokeRect(this.x - (width/2), this.y - (height/2), width, height);
         gr.setFill(colorFill);
         gr.fillRect(this.x - (width/2), this.y - (height/2), width, height);
     }
+
+
+
     @Override
     void setHeight(double value) {
         height = value;

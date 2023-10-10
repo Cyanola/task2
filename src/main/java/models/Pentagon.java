@@ -1,11 +1,14 @@
 package models;
 
 
+import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
+import java.util.Random;
+
 public class Pentagon extends Shape {
-    public Pentagon(int lineBorder, Color colorBorder, Color colorFill, double x, double y) {
+    public Pentagon(int lineBorder, Color colorBorder, Color colorFill, double x, double y, double width, double height) {
         super(lineBorder, colorBorder, colorFill, x, y);
     }
 
@@ -33,22 +36,20 @@ public class Pentagon extends Shape {
         return width;
     }
     @Override
-    public void draw(GraphicsContext gr) {
+    public void draw(Canvas canvas, GraphicsContext gr) {
         gr.setStroke(colorBorder);
 
         gr.setLineWidth(lineBorder);
-        gr.strokePolygon(new double[]{x, x/2,x/1.5, x*1.5,x*2},
+
+
+        gr.strokePolygon(new double[]{x,x/2,x/1.5, x*1.5,x*2},
                 new double[]{y,y*1.5, y*2, y*2,y*1.5},5
         );
-        gr.strokePolygon(new double[]{x, x/2,x/1.5, x*1.5,x*2},
-                new double[]{y,y*1.5, y*2, y*2,y*1.5},5
-        );
+
         gr.setFill(colorFill);
-        gr.fillPolygon(new double[]{x, x/2,x/1.5, x*1.5,x*2},
+        gr.fillPolygon(new double[]{x,x/2,x/1.5, x*1.5,x*2},
                 new double[]{y,y*1.5, y*2, y*2,y*1.5},5
         );
-        gr.fillPolygon(new double[]{x, x/2,x/1.5, x*1.5,x*2},
-                new double[]{y,y*1.5, y*2, y*2,y*1.5},5
-        );
+
     }
 }

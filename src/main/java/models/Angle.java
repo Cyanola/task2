@@ -1,19 +1,21 @@
 package models;
 
 
+import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class Angle extends Shape {
 
-    public Angle(double x, double y, int lineBorder, Color colorBorder, Color colorFill) {
+    public Angle(double x, double y, int lineBorder, Color colorBorder, Color colorFill,double width, double height) {
         super(lineBorder, colorBorder, colorFill, x, y);
     }
 
     @Override
-    public void draw(GraphicsContext gr) {
+    public void draw(Canvas canvas, GraphicsContext gr) {
         gr.setStroke(colorBorder);
         gr.setLineWidth(lineBorder);
+
         gr.strokePolygon(new double[]{x, x*2},
                 new double[]{y,y},2
         );
